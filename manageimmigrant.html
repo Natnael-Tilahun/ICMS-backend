@@ -1,0 +1,571 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>icms</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width,initial-scale=1.0">
+	<link rel="stylesheet" type="text/css" href="fontawesome/css/all.css">
+	<link rel="stylesheet" type="text/css" href="fontawesome/css/all.min.css">
+	<!-- <script src="https://kit.fontawesome.com/13ab5780e8.js" crossorigin="anonymous"></script>
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" /> -->
+	<link href="https://fonts.googleapis.com/css2?family=Candal&family=Grenze+Gotisch:wght@100;200;300;400;500;600;700;800;900&family=Lora:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&family=Titillium+Web:ital,wght@0,200;0,300;0,400;0,600;0,700;0,900;1,200;1,300;1,400;1,600;1,700&display=swap" rel="stylesheet">
+	<style type="text/css">
+	*{
+		margin: 0;
+		padding: 0;
+		box-sizing: content-box;
+		color: white;
+	}
+	body{
+/*		background: #f6f6f6;
+*/
+		background: white;
+		font-family: 'Lora',serif;
+	}
+	/*header custom style*/
+
+	.header{
+			width: 100%;
+			height: 50px;
+			background: #0099ff;
+/*			display: flex;
+*/			justify-content:space-between;
+			align-items: center;
+			/*padding: 10px;*/
+			z-index: 2
+		}
+ 	.logo{
+ 		height: inherit;
+ 		width: 200px;
+  		margin : 0px;
+  		cursor: pointer;
+  		background-color:gray;
+  		display: inline-block;
+ 	}
+ 	.profile{
+ 		display: inline;
+ 		float: right;
+ 	}
+ 	.logo a{text-decoration: none;	}
+ 	.header .logo-text{
+ 		color: white;
+ 		display: block;
+ 		font-size: 25px;
+ 		padding: 10px;
+ 		font-family: 'candal', serif;
+ 	}
+ 	.header .logo-text span{
+ 		margin-left: 0px;
+		color: red;
+/*		margin: 5px;
+*/ 	}
+ 	.header .profile {
+ 		height: inherit;
+/*		margin: 5px;
+*/	}
+ 	.header ul {
+ 		margin: 0px;
+ 		padding: 0px;
+ 	/*	border: 1px solid red;*/
+ 		list-style: none;
+ 	}
+ 	.header .nav li {
+ 		position: relative;
+ 	}
+ 	.header .nav li div{
+ 		height: 50px;
+ 		display: inline;
+ 		padding: 0px 7px;
+ 		align-items: center;
+ 	}
+ 	.header .nav li div:hover{
+ 		background-color: #c7b9c5;
+ 		transition: 0.5s;
+ 		display: block;
+ 	}
+ 	.header .nav li:hover ul{
+ 		display: block;
+ 		transition: 0.5s;
+ 	}
+ 	.header ul li span img{
+ 		height: 30px;
+ 		width: 30px;
+ 		border-radius: 20px;
+ 		padding: 5px 5px;
+ 		display: inline;
+ 	}
+ 	.header ul li a{
+ 		display: block;
+ 		text-decoration: none;
+ 		padding: 15px;
+ 		font-size: 20px;
+ 	}
+ 	.header ul li .user{
+		display: inline;
+ 		padding: 0px 0px ;
+ 		align-items: center;
+ 	}
+ 	.header .nav li:hover .user{
+ 		display: inline;
+ 		padding: 0px 0px ;
+ 		align-items: center;
+ 	}
+ 	.nav li ul{
+ 		position: absolute;
+ 		top: 50px;
+ 		left: 0px;
+ 		width: 180px;
+ 		display: none;
+ 	}
+ 	.nav li ul li{
+ 		width: 100%;
+ 	}
+ 	.nav li ul li a{
+ 		padding: 9px;
+ 		font-size: 17px;
+ 		background: #0099ff;
+ 		color: #444;
+ 	}
+ 	.left-sidebar ul li ul li:hover{
+		background:#0099ff;
+	}
+ 	.nav li ul li a:hover{
+ 		background-color: #d5d6d6;
+ 	}
+ 	.nav li ul li a.logout{
+ 		color: red;
+ 	}
+
+ 	/*side nav custom style*/
+ 	
+	.left-sidebar{
+		width: 100%;
+		top: 50px;
+		height:calc(100% - 50px);
+		background-color: #0099ff;
+		position: absolute;
+	}
+	.left-sidebar ul{
+		list-style: none;
+		padding: 0px;
+		margin: 0px;
+	}
+	.left-sidebar ul li{
+		padding: 20px 10px;
+		border-bottom: 1px solid #333;
+	}
+	.left-sidebar ul li a{
+		padding: 10px;
+		display: block;
+		text-decoration: none;
+		color: white;
+	}
+	.left-sidebar ul li:hover li {
+		display: block;
+		transition: 0.5s;
+	}
+	.left-sidebar ul li ul li{
+		padding: 5px 35px;
+		border:none;
+		display: none;
+	}
+	.left-sidebar ul li ul li:hover{
+		background:#0099ff;
+	}
+	.left-sidebar ul li ul li:hover a{
+		color: white
+	}
+	.left-sidebar ul li ul li a{
+		padding: 5px;
+		display: block;
+	}
+	.left-sidebar ul li:hover{
+		background: #c7b9c5;
+		transition: 0.5s;
+	}
+	.left-sidebar ul li a{
+		color: #333;
+	}
+	.header{
+		position: absolute;
+	}
+	
+/*right main content custom style*/
+
+	.right-maincontent{
+		position: absolute;
+		top: 50px;
+		height:calc(100% - 50px);
+		background-color: white;
+		box-sizing: content-box;
+		
+	}
+	.content{		
+		padding: 40px 100px 100px;
+		overflow-y: auto;
+	}
+	.page-title{
+		color: black;
+		text-align: center;
+		margin-bottom: 1.5rem;
+	}
+	table{
+		width: 100%;
+		font-size: 1.1rem;
+		border-collapse: collapse;
+	}
+	th,td {
+		color: black;
+		padding: 15px;
+		text-align: left;
+		border-bottom:1px solid #333;
+	}
+	a{
+		text-decoration: none;
+	}
+	.edit{
+		color: green;
+	}
+	.delete{
+		color: red;
+	}
+	.verify{
+		color: blue;
+	}
+	.edit:hover,.delete:hover,.verify:hover{
+		text-decoration: underline;
+	}
+	.input-verify,option{color: blue;
+	}
+	.footer{
+		position: fixed;
+		background-color: lightgray;
+		width: 100%;
+		bottom: 0px;
+		padding: 4px 0px;
+	}
+	footer{
+		color: black;
+		font-size: 12px;
+	}
+
+	/*media queries for responsive layout*/
+
+@media all and (min-width: 550px){
+
+/* media query custom style for header*/
+
+	.header .menu{
+ 		display: inline;
+ 		margin-left: 5px;
+ 		cursor: pointer;
+ 	}
+ 	.logo{
+		width: 170px;
+		height: 50px;
+  		margin-left :0px;
+  		display: inline-block;
+ 	}
+ 	.header .logo-text{
+ 		color: white;
+ 		display: block;
+ 		font-size: 20px;
+ 		padding: 5px;
+ 		font-family: 'candal', serif;
+ 	}
+ 	.logo a{text-decoration: none;	}
+ 	.logo .menu{
+ 		display: inline-block;
+ 	}
+ 	.profile{
+ 		display: inline;
+ 		float: right;
+ 	}
+
+	/* media query custom style for side-nav*/
+
+	.left-sidebar {
+		width: 80px;
+		height:calc(100% - 50px);
+	}
+	.left-sidebar ul li{
+		text-align: center;
+	}
+	.left-sidebar ul li ul li{
+		padding: 5px 5px;
+		border:none;
+		display: none;
+	}
+	.left-sidebar ul li i{
+		font-size: 26px;
+	}
+	.left-sidebar ul li span:nth-child(2){
+		display: none;
+	}
+
+	/* media query custom style for main-content*/
+
+	.right-maincontent{
+		margin-left: 80px;
+		width: calc(100% - 80px);
+	}
+	.content{		
+		padding: 40px 15px 15px;
+		overflow-y: auto;
+	}
+	}
+	/*media queries for responsive layout of min-width 1000px devices */
+
+
+	@media all and (min-width: 1000px){
+
+		/* media query custom style for header*/
+	.logo{
+		width: 200px;
+		height: 50px;
+	 	}
+ 	.header .logo-text{
+ 		color: white;
+ 		display: block;
+ 		font-size: 23px;
+ 		padding: 5px;
+ 		font-family: 'candal', serif;
+ 	}	 
+	.logo a{text-decoration: none;	}
+	.header .menu{
+	 	display: inline;
+		margin-left: 10px;
+ 		cursor: pointer;
+	 	}
+	.logo .menu{
+ 		display: none;
+ 	}
+ 	.profile{
+ 		display: inline;
+ 		float: right;
+ 	}	
+
+/* media query custom style for side-nav*/
+
+	.left-sidebar {
+		width: 200px;
+		height:calc(100% - 50px);
+	}
+	.left-sidebar ul li{
+		text-align: left;
+	}
+	.left-sidebar ul li span:nth-child(2){
+		display: inline;
+	}
+	.left-sidebar ul li i{
+		font-size: 16px;
+	}
+	.left-sidebar ul li ul li{
+		padding: 5px 35px;
+		border:none;
+		display: none;
+	}
+	
+ /* media query custom style for main-content*/
+
+	.right-maincontent{
+		width:calc(100% - 200px);
+		margin-left: 200px;
+	}
+}
+/*media queries for responsive layout of max-width 550px devices */
+
+@media all and (max-width: 550px){
+
+	/* media query custom style for header*/
+
+	.logo{
+		width: 150px;
+		height: 50px;
+  		margin-left :0px;
+  		display: inline-block;
+ 	}
+ 	.logo .menu{
+ 		display: inline-block;
+ 	}
+ 	.profile{
+ 		display: inline;
+ 		float: right;
+ 	}
+ 	.header .menu{
+ 		display: inline;
+ 		margin-left: 10px;
+ 		cursor: pointer;
+ 	}
+ 	.logo a{text-decoration: none;	}
+ 	.header .logo-text{
+ 		color: white;
+ 		display: block;
+ 		font-size: 17px;
+ 		padding: 10px;
+ 		font-family: 'candal', serif;
+ 	}
+ 	.header .nav li  {
+ 		position: relative;
+ 	}
+ 	.header .nav li  div a{
+ 	 		display: none;
+ 	}
+ 	.nav li ul{
+ 		position: relative;
+ 		top: 0px;
+ 		right: 0px;
+ 		width: 180px;
+ 		display: none;
+ 	}
+ 	.header .nav li div{
+ 		height: 50px;
+ 		display: inline;
+ 		padding: 0px 7px;
+ 		align-items: center;
+ 	}
+ 	.header .nav li:hover .user{
+ 		display: inline;
+ 		padding: 0px 0px ;
+ 		align-items: center;
+ 	}
+ 	.nav li ul li{
+ 		width: 100%;
+ 	}
+/* media query custom style for side-nav*/
+
+	.left-sidebar {
+		display: none;
+	}
+
+/* media query custom style for main-content*/
+
+	.right-maincontent{
+		width:100%;
+		/*margin-left: 200px;*/
+	}
+	.content{		
+		padding: 40px 15px 15px;
+	}
+}
+
+	</style>
+	<!-- <script type="text/javascript">
+		function toogle(){
+			const toogle=document.querySelector(".toogle");
+			const sidenav=document.querySelector(".left-sidebar");
+			const cancel=document.querySelector(".cancel");
+			if (sidenav.style.display="block") {
+			toogled();
+			}
+			else if (sidenav.style.display="none") {
+			canceled();
+			}
+		}
+		
+		function toogled(){
+				const cancel=document.querySelector(".cancel");
+				sidenav.style.display="block";
+				toogle.style.display="none";
+				cancel.style.display="inline";
+		}
+			
+		function canceled(){
+			const toogle=document.querySelector(".toogle");
+			const cancel=document.querySelector(".cancel");
+			const sidenav=document.querySelector(".left-sidebar");
+			sidenav.style.display="none";
+			toogle.style.display="inline";
+			cancel.style.display="none";
+		}
+	</script> -->
+<script type="text/javascript">
+	const toogle=document.querySelector("toogle");
+	const sidenav=document.querySelector("left-sidebar");
+	toogle.addEventListener('click',(e)=>{
+		sidenav.classList.toogle('active');
+	});
+</script>
+</head>
+<body>
+	<!-- start header part -->
+<header class="header">
+	<div class="logo">
+		<a href="dashboard_employee.html" class="logo-text"><span>Icms</span>Employee 
+			
+<!-- 			<span><i onclick="toogle()" class="fa fa-times cancel"></i> </span> 
+ -->		</a>
+	</div>
+	<span class="menu"><i onclick="toogle()" class="fa fa-bars menu-toogle toogle"></i></span>
+	<div class="profile">
+		<ul class="nav">
+			<li> <div class="user-div"><span><img src="no-avatar_male.jpg"></span><a class="user" href="">User Name<i class="fa fa-chevron-down" style="font-size: .8em"></i></a></div>
+				<ul>
+					<li>	<a href="">Change Password</a></li>
+					 <li>	<a href="" class="logout">Logout</a></li>
+				</ul>
+			</li>
+		</ul>
+	</div>
+</header>
+<!-- start main content -->
+<!-- <div class="admin-wrapper">
+ -->	<div class="left-sidebar">
+		<ul>
+			<li>
+				<a href="dashboard_employee.html"><span><i class="fa fa-columns"></i></span><span>Dashboard</span></a>
+			</li>
+			<li>
+				<a href=""><span><i class="fa fa-user-edit"></i></span><span>Manage Immigrant</span></a>
+				<ul class="drop-down">					
+					<li><a href="manageimmigrant.html">Manage Users</a></li>
+				</ul>
+			</li>
+			<li>
+				<a href=""><span><i class="fa fa-envelope"></i></span><span>Messages</span></a>
+			</li>
+			<li>
+				<a href="#"><span><i class="fa fa-info-circle"></i></span><span>Update Information</span></a>
+			</li>
+			
+		</ul>
+	</div>
+	<div class="right-maincontent">
+		<div class="content">
+			<h2 class="page-title">Manage Users</h2>
+			<table>
+				<thead>
+					<th>SN</th>
+					<th>Username</th>
+					<th>App Doc</th>
+					<th>Check Payment</th>
+					<th>Upload FP</th>
+					<th>Send Message</th>
+				</thead>
+				<tbody>
+					<tr>
+						<td>1</td>
+						<td>Abebe</td>
+						<td>abc.doc</td>
+						<td>abc.jpg</td>
+						<td><input type="file" name="choose file" class="edit"></td>
+						<td><input type="text" name="notification"></td>
+					</tr>
+					<tr>
+						<td>2</td>
+						<td>Abebech</td>
+						<td>asa.doc</td>
+						<td>ss.jpg</td>
+						<td><input type="file" name="choose file" class="edit"></td>
+						<td><input type="text" name="notification"></td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+		<div class="footer">
+		<footer>Copyright ICMS 2020.All rights reserved.</footer>
+		</div>
+	</div>
+<!-- </div> -->
+</body>
+</html>

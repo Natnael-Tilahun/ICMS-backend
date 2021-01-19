@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>icms</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width,initial-scale=1.0">
+	<script src="https://kit.fontawesome.com/13ab5780e8.js" crossorigin="anonymous"></script>
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+	<link href="https://fonts.googleapis.com/css2?family=Candal&family=Grenze+Gotisch:wght@100;200;300;400;500;600;700;800;900&family=Lora:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&family=Titillium+Web:ital,wght@0,200;0,300;0,400;0,600;0,700;0,900;1,200;1,300;1,400;1,600;1,700&display=swap" rel="stylesheet">
+	<style type="text/css">
+	*{
+		margin: 0;
+		padding: 0;
+		box-sizing: content-box;
+		color: white;
+	}
+	body{
+		background: #f6f6f6;
+		font-family: 'Lora',serif;
+	}
+	.header{
+			width: 100%;
+			height: 55px;
+			background: #0099ff;
+			display: flex;
+			justify-content: space-between;
+			align-items: center;
+			/*padding: 10px;*/
+			z-index: 2
+		}
+ 	.logo{
+ 		height: inherit;
+  		margin-left : 10px;
+  		cursor: pointer;
+ 	}
+ 	.header .logo-text{
+ 		color: white;
+ 		display: block;
+ 		font-size: 30px;
+ 		padding: 0px;
+ 		font-family: 'candal', serif;
+ 	}
+ 	.header .logo-text span{
+		color: red;
+/*		margin: 5px;
+*/ 	}
+ 	.header .profile {
+ 		height: inherit;
+/*		margin: 5px;
+*/	}
+ 	.header ul {
+ 		margin: 0px;
+ 		padding: 0px;
+ 	/*	border: 1px solid red;*/
+ 		list-style: none;
+ 	}
+ 	.header .nav li {
+ 		position: relative;
+ 	}
+ 	.header .nav li:hover ul{
+ 		display: block;
+ 		transition: 0.5s;
+ 	}
+ 	.header ul li a{
+ 		display: block;
+ 		text-decoration: none;
+ 		padding: 15px;
+ 		font-size: 20px;
+ 	}
+ 	.nav li a:hover{
+ 		background-color: #c7b9c5;
+ 		transition: 0.5s;
+ 	}
+ 	.nav li ul{
+ 		position: absolute;
+ 		top: 55px;
+ 		right: 0px;
+ 		width: 160px;
+ 		display: none;
+ 	}
+ 	.nav li ul li{
+ 		width: 100%;
+ 	}
+ 	.nav li ul li a{
+ 		padding: 9px;
+ 		font-size: 17px;
+ 		background: white;
+ 		color: #444;
+ 	}
+ 	.nav li ul li a:hover{
+ 		background-color: #d5d6d6;
+ 	}
+ 	.nav li ul li a.logout{
+ 		color: red;
+ 	}
+ 	/*admin content custom style*/
+ 
+	/*.admin-wrapper{
+		z-index: 1;
+		box-sizing: content-box;
+		width: 100%;
+		height: 100vh;
+		position: absolute;
+		display: flex;
+		background-color: #fff;
+		/*padding-top: 55px;*/
+	/*} */		
+	.left-sidebar{
+		width: 100%;
+		top: 55px;
+		height:calc(100% - 55px);
+		background-color: #0099ff;
+		position: absolute;
+	}
+	.left-sidebar ul{
+		list-style: none;
+		padding: 0px;
+		margin: 0px;
+	}
+	.left-sidebar ul li{
+		padding: 20px 10px;
+		border-bottom: 1px solid #333;
+	}
+	.left-sidebar ul li a{
+		padding: 10px;
+		display: block;
+		text-decoration: none;
+		color: white;
+	}
+	.left-sidebar ul li:hover li {
+		display: block;
+		transition: 0.5s;
+	}
+	.left-sidebar ul li ul li{
+		padding: 5px 35px;
+		border:none;
+		display: none;
+	}
+	.left-sidebar ul li ul li:hover{
+		background:#204044;
+	}
+	.left-sidebar ul li ul li:hover a{
+		color: white
+	}
+	.left-sidebar ul li ul li a{
+		padding: 5px;
+		display: block;
+	}
+	.left-sidebar ul li:hover{
+		background: #c7b9c5;
+		transition: 0.5s;
+	}
+	.left-sidebar ul li a{
+		color: #333;
+	}
+	.header{
+		position: absolute;
+	}
+	.right-maincontent{
+		position: absolute;
+		top: 55px;
+		height:calc(100% - 55px);
+		background-color: white;
+		box-sizing: content-box;
+		
+	}
+	.content{		
+		padding: 40px 100px 100px;
+		overflow-y: scroll;
+	}
+	.page-title{
+		color: black;
+		text-align: center;
+		margin-bottom: 1.5rem;
+	}
+	table{
+		width: 100%;
+		font-size: 1.1rem;
+		border-collapse: collapse;
+	}
+	th,td {
+		color: black;
+		padding: 15px;
+		text-align: left;
+		border-bottom:1px solid #333;
+	}
+	a{
+		text-decoration: none;
+	}
+	.edit{
+		color: green;
+	}
+	.delete{
+		color: red;
+	}
+	.publish{
+		color: blue;
+	}
+	.edit:hover,.delete:hover,.publish:hover{
+		text-decoration: underline;
+	}
+	/*media queries for responsive layout*/
+@media all and (min-width: 600px){
+	.left-sidebar {
+		width: 80px;
+	}
+	.left-sidebar ul li span:nth-child(2){
+		display: none;
+	}
+	.left-sidebar ul li i{
+		font-size: 26px;
+	}
+	.left-sidebar ul li{
+		text-align: center;
+	}
+	.right-maincontent{
+		margin-left: 80px;
+		width: calc(100% - 80px);
+	}
+	}
+	@media all and (min-width: 1000px){
+	.left-sidebar {
+		width: 200px;
+	}
+	.left-sidebar ul li span:nth-child(2){
+		display: inline;
+	}
+	.left-sidebar ul li i{
+		font-size: 16px;
+	}
+	.left-sidebar ul li{
+		text-align: left;
+	}
+	.right-maincontent{
+		width:calc(100% - 200px);
+		margin-left: 200px;
+	}
+	.cancel,.toogle{
+		display: none;
+	}
+}
+@media all and (max-width: 600px){
+	.left-sidebar {
+		display: none;
+	}
+	.right-maincontent{
+		width:100%;
+		/*margin-left: 200px;*/
+	}
+}
+	</style>
+	<script type="text/javascript">
+		function toogle(){
+			const toogle=document.querySelector(".toogle");
+			const sidenav=document.querySelector(".left-sidebar");
+			const cancel=document.querySelector(".cancel");
+			if (sidenav.style.display="block") {
+			toogled();
+			}
+			else if (sidenav.style.display="none") {
+			canceled();
+			}
+		}
+		
+		function toogled(){
+				const cancel=document.querySelector(".cancel");
+				sidenav.style.display="block";
+				toogle.style.display="none";
+				cancel.style.display="inline";
+		}
+			
+		function canceled(){
+			const toogle=document.querySelector(".toogle");
+			const cancel=document.querySelector(".cancel");
+			const sidenav=document.querySelector(".left-sidebar");
+			sidenav.style.display="none";
+			toogle.style.display="inline";
+			cancel.style.display="none";
+		}
+	</script>
+<!-- <script type="text/javascript">
+	const toogle=document.querySelector("toogle");
+	const sidenav=document.querySelector("left-sidebar");
+	toogle.addEventListener('click',(e)=>{
+		sidenav.classList.toogle('active');
+	});
+</script> -->
+</head>
+<body>
+	<!-- start header part -->
+<header class="header">
+	<div class="logo">
+		<a class="logo-text"><span>Icms</span>Admin 
+			<span><i onclick="toogle()" class="fa fa-bars menu-toogle toogle"></i></span>
+			<span><i onclick="toogle()" class="fa fa-times cancel"></i> </span> 
+		</a>
+	</div>
+	<div class="profile">
+		<ul class="nav">
+			<li> <a class="user" href=""><i class="fa fa-user-circle" style="font-size: 1.1em"></i>User Name<i class="fa fa-chevron-down" style="font-size: .8em"></i></a>
+				<ul>
+					<li>	<a href="">Change Password</a></li>
+					 <li>	<a href="" class="logout">Logout</a></li>
+				</ul>
+			</li>
+		</ul>
+	</div>
+</header>
+<!-- start main content -->
+<!-- <div class="admin-wrapper">
+ -->	<div class="left-sidebar">
+		<ul>
+			<li>
+				<a href=""><span><i class="fa fa-user-edit"></i></span><span>Manage Employee</span></a>
+				<ul class="drop-down">
+					<li><a href="">Add User</a></li>
+					<li><a href="">Manage User</a></li>
+				</ul>
+			</li>
+			<li>
+				<a href=""><span><i class="fa fa-envelope"></i></span><span>Messages</span></a>
+			</li>
+			<li>
+				<a href=""><span><i class="fa fa-bar-chart"></i></span><span>Analytics</span></a>
+			</li>
+		</ul>
+	</div>
+	<div class="right-maincontent">
+		<div class="content">
+			<h2 class="page-title">Manage Posts</h2>
+			<table>
+				<thead>
+					<th>SN</th>
+					<th>Username</th>
+					<th>Roll</th>
+					<th colspan="2">Action</th>
+				</thead>
+				<tbody>
+					<tr>
+						<td>1</td>
+						<td>Abebe</td>
+						<td>Acountant</td>
+						<td><a href="#" class="edit">edit</a></td>
+						<td><a href="#" class="delete">delete</a></td>
+						
+					</tr>
+					<tr>
+						<td>2</td>
+						<td>Abebech</td>
+						<td>Secretary</td>
+						<td><a href="#" class="edit">edit</a></td>
+						<td><a href="#" class="delete">delete</a></td>
+						
+					</tr>
+				</tbody>
+			</table>
+		</div>
+	</div>
+<!-- </div> -->
+</body>
+</html>
